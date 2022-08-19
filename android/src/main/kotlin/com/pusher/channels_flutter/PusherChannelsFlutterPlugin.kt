@@ -140,10 +140,10 @@ class PusherChannelsFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAw
 
     private fun subscribe(channelName: String, result: Result) {
         val channel = when {
-            channelName.startsWith("private-") -> pusher!!.subscribePrivate(channelName, this)
             channelName.startsWith("private-encrypted-") -> pusher!!.subscribePrivateEncrypted(
                 channelName, this
             )
+            channelName.startsWith("private-") -> pusher!!.subscribePrivate(channelName, this)
             channelName.startsWith("presence-") -> pusher!!.subscribePresence(
                 channelName, this
             )
